@@ -11,7 +11,7 @@ export default{
     },
     methods: {
         getCardsList: function(){
-            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
+            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=40&offset=0')
             .then((response) => {
                 this.store.cardsList = response.data.data;
                 console.log(this.store.cardsList);
