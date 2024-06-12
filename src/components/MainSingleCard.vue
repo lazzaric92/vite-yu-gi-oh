@@ -47,6 +47,7 @@ export default{
 
         .card-info {
             text-align: center;
+            padding: .2rem;
 
             h3 {
                 color: white;
@@ -56,7 +57,6 @@ export default{
 
             p {
                 font-size: 1.2rem;
-                margin-bottom: .2rem;
             }
         }
     }

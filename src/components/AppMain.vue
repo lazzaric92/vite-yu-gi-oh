@@ -1,5 +1,6 @@
 <script>
 import MainCardsList from './MainCardsList.vue';
+import MainLoader from './MainLoader.vue';
 import axios from 'axios';
 import { store } from "../store.js";
 
@@ -7,6 +8,7 @@ export default{
     data(){
         return {
             store,
+            isLoaded: false,
         }
     },
     methods: {
@@ -23,13 +25,20 @@ export default{
             .finally(function () {
                 // always executed
             });
+        },
+        loadingFunction: function(){
+            setTimeout(() => {
+                this.isLoaded = true;
+            }, 3000);
         }
     },
     created(){
         this.getCardsList();
+        this.loadingFunction();
     },
     components: {
-        MainCardsList
+        MainCardsList,
+        MainLoader
     }
 }
 </script>
@@ -37,7 +46,8 @@ export default{
 <template>
     <main>
         <div class="container">
-            <MainCardsList />
+            <MainCardsList v-if="isLoaded" />
+            <MainLoader v-else />
         </div>
     </main>
 </template>
@@ -45,8 +55,8 @@ export default{
 <style scoped lang="scss">
 @use '../assets/styles/partials/variables' as *;
 @use '../assets/styles/partials/mixins' as *;
+
     main {
-        background-color: $bg-orange;
         padding: 4rem 0;
     }
 
