@@ -1,15 +1,23 @@
 <script>
+import { store } from "../store.js";
+
 export default{
     data(){
         return {
-            message: 'I\'m a card'
+            store
+        }
+    },
+    props: {
+        singleCard: {
+            type: Object,
+            required: true,
         }
     }
 }
 </script>
 
 <template>
-    <h1> {{ message }} </h1>
+    <p> {{ singleCard.name }} </p>
 </template>
 
 <style scoped lang="scss">

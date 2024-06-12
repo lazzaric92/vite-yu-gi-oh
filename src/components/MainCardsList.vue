@@ -1,10 +1,12 @@
 <script>
 import MainSingleCard from './MainSingleCard.vue';
+import { store } from "../store.js";
 
 export default{
     data(){
         return {
-            message: 'Here\'s the cards'
+            message: 'Here\'s the cards',
+            store,
         }
     },
     components: {
@@ -15,7 +17,7 @@ export default{
 
 <template>
     <h1> {{ message }} </h1>
-    <MainSingleCard />
+    <MainSingleCard v-for="card in store.cardsList" :key="card.id" :singleCard="card"/>
 </template>
 
 <style scoped lang="scss">
