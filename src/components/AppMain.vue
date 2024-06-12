@@ -6,7 +6,6 @@ import { store } from "../store.js";
 export default{
     data(){
         return {
-            message: 'Main',
             store,
         }
     },
@@ -36,10 +35,22 @@ export default{
 </script>
 
 <template>
-    <h1> {{ message }} </h1>
-    <MainCardsList />
+    <main>
+        <div class="container">
+            <MainCardsList />
+        </div>
+    </main>
 </template>
 
 <style scoped lang="scss">
+@use '../assets/styles/partials/variables' as *;
+@use '../assets/styles/partials/mixins' as *;
+    main {
+        background-color: $bg-orange;
+        padding: 4rem 0;
+    }
 
+    .container{
+        @include my-container();
+    }
 </style>
