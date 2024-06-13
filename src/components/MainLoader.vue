@@ -34,7 +34,7 @@ export default{
     background: linear-gradient(90deg,#000000 calc(5% + 0.5ch),#a81f07 calc(50% + 0.5ch),#ffffff 0) right/calc(200% + 1ch) 100%;
     -webkit-background-clip: text;
             background-clip: text;
-    animation: l7 2s infinite steps(11);
+    animation: l7 2s infinite steps(20);
 }
 .first-loader:before {
     content:"Generating cards..."
