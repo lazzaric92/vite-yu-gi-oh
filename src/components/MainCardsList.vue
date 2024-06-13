@@ -38,6 +38,7 @@ export default{
             color: white;
             padding: 1rem;
             font-weight: bold;
+            margin-bottom: 1rem;
         }
 
         .card-wrapper {

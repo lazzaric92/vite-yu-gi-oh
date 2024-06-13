@@ -21,6 +21,7 @@ export default{
         display: flex;
         align-items: center;
         padding: 1rem 1.5rem;
+        margin-bottom: 1rem;
 
         img {
             width: 75px;

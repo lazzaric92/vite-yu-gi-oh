@@ -8,7 +8,7 @@ export default{
     data(){
         return {
             store,
-            isLoaded: false,
+            isLoaded: true,
         }
     },
     methods: {
@@ -21,9 +21,6 @@ export default{
             .catch(function (error) {
                 // handle error
                 console.log(error);
-            })
-            .finally(function () {
-                // always executed
             });
         },
         loadingFunction: function(){
@@ -33,8 +30,8 @@ export default{
         }
     },
     created(){
-        this.getCardsList();
-        this.loadingFunction();
+        // this.getCardsList();
+        // this.loadingFunction();
     },
     components: {
         MainCardsList,
@@ -55,10 +52,6 @@ export default{
 <style scoped lang="scss">
 @use '../assets/styles/partials/variables' as *;
 @use '../assets/styles/partials/mixins' as *;
-
-    main {
-        padding: 4rem 0;
-    }
 
     .container{
         @include my-container();

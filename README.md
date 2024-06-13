@@ -10,7 +10,20 @@ Per evitare attese e/o rallentamenti nelle richieste, potete diminuire il numero
 https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0
 
 
-
 Bonus:
 Creare un componente loader da visualizzare fintantoché i risultati non sono pronti.
 // Creo una variabile, settata su false, che diventa true una volta ricevuti i dati rischiesti. Se la variabile è false viene visualizzato il loader.
+
+
+Aggiungete una select per filtrare i risultati in base all’archetipo.
+Le option della select devono essere popolate dinamicamente chiamando questo endpoint dell'api:
+https://db.ygoprodeck.com/api/v7/archetypes.php
+Quando l'utente seleziona un valore dalla lista, viene effettuata una chiamata alle API con l'archetipo selezionato.
+
+
+Bonus:
+Creare un componente che mostri il numero totale di risultati ottenuti.
+
+Nota:
+Per capire come comunicare alle API le carte dell'archetipo che volete, è necessario fare riferimento alla documentazione che trovate qui:
+https://ygoprodeck.com/api-guide/
