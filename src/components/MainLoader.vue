@@ -10,8 +10,8 @@ export default{
 
 <template>
     <div class="loader-wrapper">
-        <p>Generating cards...</p>
-        <div class="loader"></div>
+        <div class="first-loader"></div>
+        <div class="second-loader"></div>
     </div>
 </template>
 
@@ -23,16 +23,25 @@ export default{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    p {
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        color: white;
-    }
 }
 
-.loader {
+.first-loader {
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 30px;
+    color: #0000;
+    background: linear-gradient(90deg,#000000 calc(5% + 0.5ch),#a81f07 calc(50% + 0.5ch),#ffffff 0) right/calc(200% + 1ch) 100%;
+    -webkit-background-clip: text;
+            background-clip: text;
+    animation: l7 2s infinite steps(11);
+}
+.first-loader:before {
+    content:"Generating cards..."
+}
+@keyframes l7 {to{background-position: left}}
+
+.second-loader {
     margin: 2rem auto;
     width: 40px;
     aspect-ratio: 2/3;

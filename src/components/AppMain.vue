@@ -9,25 +9,14 @@ export default{
     data(){
         return {
             store,
-            isLoaded: true,
+            isLoading: false,
         }
     },
     methods: {
-        // getCardsList: function(){
-        //     axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=40&offset=0')
-        //     .then((response) => {
-        //         this.store.cardsList = response.data.data;
-        //         console.log(this.store.cardsList);
-        //     })
-        //     .catch(function (error) {
-        //         // handle error
-        //         console.log(error);
-        //     });
-        // },
         loadingFunction: function(){
             setTimeout(() => {
-                this.isLoaded = true;
-            }, 3000);
+                this.isLoading = false;
+            }, 2000);
         },
         getCardsByArchetypes: function(value){
             axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php', {
@@ -36,16 +25,14 @@ export default{
                 }
             })
             .then((response) => {
-                this.store.cardsList = response.data;
-                console.log(this.store.cardsList);
+                this.isLoading = true;
+                this.store.cardsList = response.data.data;
+                this.loadingFunction();
             })
             .catch(function (error) {
                 console.log(error);
             });  
         }
-    },
-    created(){
-        // this.loadingFunction();
     },
     components: {
         AppSearch,
@@ -59,7 +46,7 @@ export default{
     <main>
         <div class="container">
             <AppSearch @search="getCardsByArchetypes" />
-            <MainCardsList v-if="isLoaded" />
+            <MainCardsList v-if="(!isLoading)" />
             <MainLoader v-else />
         </div>
     </main>

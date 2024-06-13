@@ -17,7 +17,8 @@ export default{
 <template>
     <section>
         <div>
-            <p>Found {{ store.cardsList.length }} cards</p>
+            <p v-if="this.store.cardsList.length > 0">Found {{ store.cardsList.length }} cards</p>
+            <p v-else>Select an archetype</p>
         </div>
         <div class="card-wrapper">
             <template v-if="this.store.cardsList.length > 0">
@@ -33,8 +34,8 @@ export default{
 
     section {
         background-color: white;
-        padding: 3rem;
-        margin-top: 1rem;
+        padding: 3rem 3rem 2rem;
+        margin: 1rem 0 2rem;
 
         div:first-child {
             background-color: $bg-darkgrey;
@@ -47,7 +48,7 @@ export default{
         .card-wrapper {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: space-around;
         }
     }
 </style>
