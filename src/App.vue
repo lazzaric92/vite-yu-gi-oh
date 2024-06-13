@@ -1,6 +1,5 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
-import AppSearch from './components/AppSearch.vue';
 import AppMain from './components/AppMain.vue';
 
 export default{
@@ -11,7 +10,6 @@ export default{
   },
   components: {
     AppHeader,
-    AppSearch,
     AppMain,
   }
 }
@@ -19,7 +17,6 @@ export default{
 
 <template>
   <AppHeader />
-  <AppSearch />
   <AppMain />
 </template>
 

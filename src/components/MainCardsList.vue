@@ -20,7 +20,9 @@ export default{
             <p>Found {{ store.cardsList.length }} cards</p>
         </div>
         <div class="card-wrapper">
-            <MainSingleCard v-for="card in store.cardsList" :key="card.id" :singleCard="card"/>
+            <template v-if="this.store.cardsList.length > 0">
+                <MainSingleCard v-for="card in store.cardsList" :key="card.id" :singleCard="card"/>
+            </template>
         </div>
     </section>
 </template>
@@ -32,6 +34,7 @@ export default{
     section {
         background-color: white;
         padding: 3rem;
+        margin-top: 1rem;
 
         div:first-child {
             background-color: $bg-darkgrey;

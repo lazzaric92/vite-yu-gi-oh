@@ -13,7 +13,6 @@ export default{
             axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
             .then((response) => {
                 this.store.archetypes = response.data;
-                console.log(this.store.archetypes);
             })
             .catch(function (error) {
                 console.log(error);
@@ -29,7 +28,8 @@ export default{
 <template>
     <div class="container">
         <select id="archetypes-select">
-            <option v-for="(archetype, index) in store.archetypes" :key="archetype.index" :value="archetype.archetype_name"> {{ archetype.archetype_name }} </option>
+            <option value="" disabled>Select an archetype</option>
+            <option v-for="(archetype, index) in store.archetypes" :key="archetype.index" :value="archetype.archetype_name" @click="$emit('search', archetype.archetype_name)"> {{ archetype.archetype_name }} </option>
         </select>
     </div>
 </template>
